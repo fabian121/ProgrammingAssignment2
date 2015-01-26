@@ -1,0 +1,16 @@
+{
+    "contents" : "## Assignment 2\n\n## This function creates a special \"matrix\" object that can cache its inverse\nmakeCacheMatrix <- function(x = matrix()) {\n    i <- NULL\n    \n    #put values to my local matrix\n    set <- function(y){\n        x <<- y\n        i <<- NULL\n    }\n    get <- function(){\n        x\n    }\n\n    #calculates the inverse\n    setInverse <- function(inverse){\n        i <<- inverse\n    }\n    getInverse <- function(){\n        i\n    }\n    \n    list(set=set, get=get, setInverse=setInverse, getInverse=getInverse)\n}\n\n\n## This function computes the inverse of the special \"matrix\" returned by\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n    i <- x$getInverse()\n    if(!is.null(i)){\n        message(\"getting cached data\")\n        return(i)\n    }\n    matrixTemp <- x$get()\n    inverse <- solve(matrixTemp)\n    x$setInverse(inverse)\n    inverse\n}\n",
+    "created" : 1422230510536.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "382803131",
+    "id" : "E1BF1013",
+    "lastKnownWriteTime" : 1422229397,
+    "path" : "~/Programming_Assignment_2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
